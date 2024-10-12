@@ -1,3 +1,8 @@
+using System;
+using System.Collections;
+using System.Runtime.CompilerServices;
+using System.Diagnostics.CodeAnalysis;
+
 namespace Utility
 { 
    public static partial class ValidationUtility
@@ -19,7 +24,7 @@ namespace Utility
     /// <returns>True if the object is not null or empty, false otherwise (in soft fail mode).</returns>
     /// <exception cref="NullException">Thrown when the object is null or empty in hard fail mode.</exception>
     public static bool NotNullValidation<T>(
-        T obj,
+        [NotNullWhen( true )] T obj,
         bool hardFail = true,
         string? customErrorMessage = null,
         [CallerArgumentExpression("obj")] string? parameterName = null,
